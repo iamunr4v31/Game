@@ -2,8 +2,8 @@ import pgzrun
 import random
 
 
-WIDTH = 500
-HEIGHT = 500
+WIDTH = 400
+HEIGHT = 708
 TITLE = 'flappy-bird'
 
 
@@ -70,9 +70,11 @@ def update():
     update_bird()
 
 
-def on_key_down():
+def on_key_down(key, mod, unicode):
     if not bird.dead:
-        bird.vy -= FLAP_STR
+        if unicode:
+            if unicode == 'w':
+                bird.vy -= FLAP_STR
 
 
 def draw():
