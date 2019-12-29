@@ -36,9 +36,9 @@ def update_letter(i):
     global LETTERS
     y = choice(string.ascii_letters).lower()
     if(LETTERS[i] != None):
-        LETTERS[i] = {}
+        LETTERS[i] = {"letter":None,"x":None,"y":None}
     for x in range (4):
-        if y == LETTERS[x]["letter"] :
+        if (y == LETTERS[x]['letter']) :
             update_letter(i)
     LETTERS[i]["letter"] = y
     LETTERS[i]["x"] = randint(10, WIDTH -10)
@@ -53,6 +53,7 @@ def on_key_down(key, mod, unicode):
                 var = False
                 score["RIGHT"]+=1
                 update_letter(i)
+                break
                 # on_key_down(key,mod,unicode)
         if var:   
             score["WRONG"]+=1
